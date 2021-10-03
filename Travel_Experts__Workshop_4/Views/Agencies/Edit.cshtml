@@ -1,0 +1,64 @@
+﻿@model Travel_Experts__Workshop_4.Domain.Agency
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Agency</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AgencyId" />
+            <div class="form-group">
+                <label asp-for="AgncyAddress" class="control-label"></label>
+                <input asp-for="AgncyAddress" class="form-control" />
+                <span asp-validation-for="AgncyAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgncyCity" class="control-label"></label>
+                <input asp-for="AgncyCity" class="form-control" />
+                <span asp-validation-for="AgncyCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgncyProv" class="control-label"></label>
+                <input asp-for="AgncyProv" class="form-control" />
+                <span asp-validation-for="AgncyProv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgncyPostal" class="control-label"></label>
+                <input asp-for="AgncyPostal" class="form-control" />
+                <span asp-validation-for="AgncyPostal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgncyCountry" class="control-label"></label>
+                <input asp-for="AgncyCountry" class="form-control" />
+                <span asp-validation-for="AgncyCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgncyPhone" class="control-label"></label>
+                <input asp-for="AgncyPhone" class="form-control" />
+                <span asp-validation-for="AgncyPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AgncyFax" class="control-label"></label>
+                <input asp-for="AgncyFax" class="form-control" />
+                <span asp-validation-for="AgncyFax" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
