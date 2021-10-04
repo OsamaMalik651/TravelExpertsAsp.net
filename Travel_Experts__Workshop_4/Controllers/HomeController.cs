@@ -9,6 +9,7 @@ using Travel_Experts__Workshop_4.Models;
 
 namespace Travel_Experts__Workshop_4.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
