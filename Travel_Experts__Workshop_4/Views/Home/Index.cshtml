@@ -1,8 +1,43 @@
-﻿@{
-    ViewData["Title"] = "Travel Experts";
-}
+﻿@{ ViewData["Title"] = "Travel Experts"; }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Welcome to Travel Expert</h1>
     <p>Discover your new favorite vacation destination.</p>
 </div>
+<img src="https://images.unsplash.com/photo-1483190914030-b4dc3e0f558c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80" class="img-fluid" alt="person in airport at sunset">
+<h1 class="display-4 mt-4">Our Travel Packages</h1>
+<h3 class="px-4 py-1 my-4 text-center#{message}"></h3>
+
+    if !message
+
+<h3 class=" px-4 py-1 my-1 text-center">Some of our favourite destinations!</h3>
+
+           if Packages
+
+<div class="container-fluid">
+
+    <div class="#mycard row justify-content-center align-items-start d-flex bg-dark rounded">
+
+        each package in Packages
+
+        <div class="card.m-1 pt-3 d-flex align-self-stretch(style='width: 25rem;')">
+
+            <div class="d-flex flex-fill shadow">
+
+                <img class="card-img-top rounded" (src=`${package.PkgImgSrc}` alt=`${package.PkgName}` style='height: 400px; object-fit: cover;' )>
+
+                <div class="card-body text-center d-flex flex-column mt-auto">
+
+                    <h5 class="card-title fs-2 text-center justify-self-end" #{package.PkgName}></h5>
+
+                    <p class="card-text text-center justify-self-end" #{package.PkgDesc}></p>
+
+                    <p class="card-text text-center justify-self-end" $#{package.PkgBasePrice}></p>
+
+                    <a class="btn btn-primary pb-3 mt-auto" (href="/packages/details/" + package.PackageId) More Info></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
