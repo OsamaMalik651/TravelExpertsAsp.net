@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using Travel_Experts__Workshop_4.Domain;
 
 namespace Travel_Experts__Workshop_4.Controllers
 {
+    [Authorize]
     public class AgentsController : Controller
     {
         private readonly TravelExperts_Context _context;

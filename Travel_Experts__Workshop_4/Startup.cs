@@ -25,6 +25,7 @@ namespace Travel_Experts__Workshop_4
         {
             services.AddDbContext<Travel_Experts__Workshop_4.Domain.TravelExperts_Context>();
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +42,7 @@ namespace Travel_Experts__Workshop_4
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -49,6 +50,7 @@ namespace Travel_Experts__Workshop_4
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
