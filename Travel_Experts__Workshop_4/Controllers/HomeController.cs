@@ -9,7 +9,6 @@ using Travel_Experts__Workshop_4.Models;
 
 namespace Travel_Experts__Workshop_4.Controllers
 {
-    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -27,6 +26,11 @@ namespace Travel_Experts__Workshop_4.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult GetContactPage()
+        {
+            return View("ContactUs");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
