@@ -7,15 +7,12 @@
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-CeruleanTheme.css" />*@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-CyborgTheme.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
-
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Travel Experts</a>
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Packages" asp-action="Index">Travel Experts</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,15 +23,13 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home/Packages</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Agencies" asp-action="Index">Contact Us</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="GetContactPage">Contact Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Agents" asp-action="Index">Our Agents</a>
                         </li>
                     </ul>
-                </div>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <partial name="_loginPartial.cshtml" class="nav-link text-white"/>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
