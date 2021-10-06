@@ -1,26 +1,26 @@
-﻿
-
-@{
+﻿@{
     ViewData["Title"] = "ContactUs";
 }
 
-<h1>ContactUs</h1>
-<div class="container-fluid.col-xl-8">
-    //-Main Content of the Contact page
-    <div class="container-fluid shadow-lg p-3 mb-3 rounded">
-        <p class="x-4 py-2 my-4 text-center"></p>
+@model HomeViewModel
+
+
+@*<div class="container-fluid.col-xl-8">
+    Main Content of the Contact page
+    <div class="container-fluid shadow-lg my-md-5 bg-secondary">
+        <h1 class="py-2 my-4 text-center text-white">ContactUs</h1>
     </div>
 </div>
 
 <h2 class="display-5 fw-bold">Contact us</h2>
-<img.d-block.mx-auto.mb-4(src ="/images/logo.png" alt='' width='150rem' height='auto' )>
+<img.d-block.mx-auto.mb-4 src="/images/logo.png" alt='' width='150rem' height='auto'>
     <h1 class="display-5 fw-bolder">Travel Experts</h1>
     <h2 class="display-6 pb-2 mb-2">Dream  Explore Discover.</h2>
 
     <div class="col-lg-6 mx-auto">
         <p class="lead mb-1 fs-5 text-wrap"></p>
     </div>
-    | Please get in touch for details and queries.
+    Please get in touch for details and queries.
 
     <div class="-grid.gap-2 d-sm-flex justify-content-sm-center">
         <div class="row text-center contianer m-5">
@@ -31,7 +31,7 @@
                 <div class="col-4 col-sm-12 col-lg-4">
                     i.bi.bi-envelope(style='font-size: 3rem;')
                     <h5 class="">Reach Us at</h5>
-                    <a class="(style=" text-decoration:none; color: black" href='mailto: info@travelexperts.ca' )></a>
+                    <a class="" style="text-decoration:none; color: black" href='mailto: info@travelexperts.ca'></a>
                     <h5 class="">info@travelexperts.ca</h5>
                     <div class="col-4 col-sm-12 col-lg-4">
                         i.bi.bi-pin-map(style='font-size: 3rem; color')
@@ -41,76 +41,97 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 
-    //-Show the agent details card from the database
-    <div class="container shadow d-flex flex-column p-3 col-sm-12 col-lg-6" (style='width: 100%; ' )>
+    
+    <div class="container shadow d-flex flex-column p-3 col-sm-12 col-lg-6" style="width: 100%;">
 
-        <h1 class="text-center">Our Offices</h1>
-        if Agency
-        <div class="container-fluid">
-            <div class="#mycard row justify-content-center align-items-start d-flex bg-dark rounded">
-                each agency in Agency
-                <div class="card bg-light m-3" (style='width: 18rem;' )>
-                    <div class="card-body">
-                        <h5 class="card-title Office" #{agency.AgencyId}></h5>
-                        <h6 class="card-subtitle mt-2 mb-1 Address:" #{agency.AgncyAddress}, #{agency.AgncyCity}, #{agency.AgncyProv}, #{agency.AgncyPostal}, #{agency.AgncyCountry}></h6>
-                        <p class="card-text.mt-3" (style="margin-bottom:0" ) Contact: #{agency.AgncyPhone}></p>
-                        <p class="card-text" (style="margin-bottom:0" ) Fax: #{agency.AgncyFax}></p>
-                    </div>
+        <h1 class="text-center">Our Office Locations</h1>
+
+            <div class="container-fluid">
+                <div class="#mycard row justify-content-center align-items-start d-flex bg-dark rounded">
+                    @foreach (var item in @Model.Agency)
+                    {
+                        <div class="card bg-light m-3" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><span asp-for="@item.AgncyCity"></span>Office</h5>
+                                <label asp-for="@item.AgncyAddress" class="control-label"></label>
+                                <input asp-for="@item.AgncyAddress" class="form-control" />
+                                <label asp-for="@item.AgncyCity" class="control-label"></label>
+                                <input asp-for="@item.AgncyCity" class="form-control" />
+                                <label asp-for="@item.AgncyProv" class="control-label"></label>
+                                <input asp-for="@item.AgncyProv" class="form-control" />
+                                <label asp-for="@item.AgncyPostal" class="control-label"></label>
+                                <input asp-for="@item.AgncyPostal" class="form-control" />
+                                <label asp-for="@item.AgncyCountry" class="control-label"></label>
+                                <input asp-for="@item.AgncyCountry" class="form-control" />
+                                <label asp-for="@item.AgncyPhone" class="control-label"></label>
+                                <input asp-for="@item.AgncyPhone" class="form-control" />
+                                <label asp-for="@item.AgncyFax" class="control-label"></label>
+                                <input asp-for="@item.AgncyFax" class="form-control" />
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
-        </div>
     </div>
 
 
-    //- Agent contact information
+    Agent contact information
 
     <div class="container-fluid">
-        <div class="#mycard row justify-content-center align-items-start d-flex bg-darkrounded">
-            if Agents
-            <h1 class="text" (style="text-align: center;" )> Our Team</h1>
-            <div class="container-fluid d-flex flex-row bg-dark flex-wrap mr-auto justify-content-sm-center justify-content-lg-center">
-                each agent in Agents
-                <div class="card.bg-white.m-3" (style='width: 18rem;' )>
+        <h1 class="text" style="text-align: center;"> Our Team</h1>
+        <div class="container-fluid d-flex flex-row bg-dark flex-wrap mr-auto justify-content-sm-center justify-content-lg-center">
+            @foreach (var item in @Model.Agents)
+            {
+                <div class="card.bg-white.m-3" style='width: 18rem;'>
                     <div class="card-body">
-                        <h5 class="card-title" #{agent.AgtFirstName} #{agent.AgtLastName}></h5>
-                        <h6 class="card-subtitle mt-2 mb-1 Email:" #{agent.AgtEmail}></h6>
-                        <p class="card-text mt-3" (style="margin-bottom:0" ) Contact:#{agent.AgtBusPhone}></p>
-                        <p class="card-text" (style="margin-bottom:0" ) #{agent.AgtPosition}></p>
-                        <p class="card-text Agency ID:" #{agent.AgencyId}></p>
+                        <h5 class="card-title"></h5>
+                        <label asp-for="@item.AgtFirstName" class="control-label"></label>
+                        <input asp-for="@item.AgtFirstName" class="form-control" />
+                        <label asp-for="@item.AgtLastName" class="control-label"></label>
+                        <input asp-for="@item.AgtLastName" class="form-control" />
+                        <h6 class="card-.subtitle mt-2 mb-1 Email:"></h6>
+                        <label asp-for="@item.AgtEmail" class="control-label"></label>
+                        <input asp-for="@item.AgtEmail" class="form-control" />
+                        <p class="card-text mt-3" style="margin-bottom:0"></p>
+                        <label asp-for="@item.AgtBusPhone" class="control-label"></label>
+                        <input asp-for="@item.AgtBusPhone" class="form-control" />
+                        <p class="card-text" style="margin-bottom:0"></p>
+                        <label asp-for="@item.AgtPosition" class="control-label"></label>
+                        <input asp-for="@item.AgtPosition" class="form-control" />
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 
 
 
-    //- Contact form
-    <div class="container-fluid shadow d-flex flex-column p-3 mb-5 col-sm-12 col-lg-6" (style='width: 100%; ' )>
-        <div class="container-fluid d-flex flex-column p-3 col-sm-12 col-lg-6" (style='width: 50%;' )>
-            <h1 class="" (style="text-align: center;" )></h1>
+    Contact form
+    <div class="container-fluid shadow d-flex flex-column p-3 mb-5 col-sm-12 col-lg-6" style="width: 100%;">
+        <div class="container-fluid d-flex flex-column p-3 col-sm-12 col-lg-6" style="width: 50%;">
+            <h1 class="" style="text-align: center;"></h1>
         </div>
     </div>
 
     | Send us your questions below.
-    <h5 class="" (style="text-align: center; color: white" )></h5>
+    <h5 class="" style="text-align: center; color: white"></h5>
     |Enter your details and query and we will
     |reach out to you
     form#contact(action='/contact' method='POST')
     <div class="mb-3.mt-3">
-        <div class="label form-label fs-5" (for='contactFormName' ) Name>
-            <div class="input#contactFormName form-control" (type='text' placeholder='Enter your Name here' name='Name' )>
+        <div class="label form-label fs-5" for='contactFormName' Name>
+            <div class="input#contactFormName form-control" type='text' placeholder='Enter your Name here' name='Name'>
                 <div class="mb-3.mt-3">
-                    <div class="label form-label fs-5" (for='contactFormName' ) Email>
-                        <div class="input#contactFormEmail form-control" (type='email' placeholder='name@example.com' name='Email' )>
+                    <div class="label form-label fs-5" for='contactFormName' Email>
+                        <div class="input#contactFormEmail form-control" type='email' placeholder='name@example.com' name='Email'>
                             <div class="mb-3">
-                                <div class="label form-label fs-5" (for='contactFormQuery' ) Query>
-                                    <div class="textarea#contactFormQuery form-control" (rows='3' name='Query' maxlength='400' )>
+                                <div class="label form-label fs-5" for='contactFormQuery' Query>
+                                    <div class="textarea#contactFormQuery form-control" rows='3' name='Query' maxlength='400'>
                                         <div class="d-grid.mt-3 mb-3 gap-3 col-6 mx-auto">
-                                            <div class="button btn btn-primary btn-block text-white" (type='submit' form='contact' )>
-                                            </div>
+                                            <button class="btn-primary btn-block text-white" type='submit' form='contact'>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
