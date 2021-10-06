@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Travel_Experts__Workshop_4.Areas.Identity.Data;
+using Travel_Experts__Workshop_4.Data;
+using Travel_Experts__Workshop_4.Domain;
 
 namespace Travel_Experts__Workshop_4.Areas.Identity.Pages.Account
 {
@@ -94,7 +96,7 @@ namespace Travel_Experts__Workshop_4.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-
+                    
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
