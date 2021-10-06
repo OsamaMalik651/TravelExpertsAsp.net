@@ -38,4 +38,12 @@
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Views\Packages\Create.cshtml" />
+    <None Include="Views\Packages\Delete.cshtml" />
+    <None Include="Views\Packages\Details.cshtml" />
+    <None Include="Views\Packages\Edit.cshtml" />
+    <None Include="Views\Packages\Index.cshtml" />
+  </ItemGroup>
+
 </Project>
