@@ -24,6 +24,7 @@ namespace Travel_Experts__Workshop_4
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Travel_Experts__Workshop_4.Domain.TravelExperts_Context>();
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -40,7 +41,7 @@ namespace Travel_Experts__Workshop_4
                 app.UseExceptionHandler("/Home/Error");
             }
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

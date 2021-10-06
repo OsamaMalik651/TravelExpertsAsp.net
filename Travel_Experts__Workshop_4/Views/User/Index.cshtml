@@ -1,0 +1,107 @@
+﻿@model Travel_Experts__Workshop_4.Models.CustomerViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Account Details</h1>
+
+<div>
+    <h4>Welcome @Model.Customer.CustFirstName @Model.Customer.CustLastName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.CustFirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.CustFirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.CustLastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.CustLastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.CustAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.CustAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.CustHomePhone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.CustHomePhone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.CustEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.CustEmail)
+        </dd>
+    </dl>
+</div>
+<a asp-action="Edit" asp-controller="Customers" asp-route-id="@Model.Customer.CustomerId">Update Details</a> |
+<div>
+    <h4 class="text-center"> Bookings</h4>
+    
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Destination</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.Bookings)
+            {<tr>
+    @foreach (var item1 in item.BookingDetails)
+    {
+        <td>
+            @Html.DisplayFor(modeItem => item1.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modeItem => item1.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modeItem => item1.BasePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modeItem => item1.TripStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modeItem => item1.TripEnd)
+        </td>
+
+        @if (item1.TripStart > DateTime.Today)
+        {
+            <td class=" text-center">
+                <a class="btn btn-outline-info m-1" asp-action="Edit" asp-controller="Bookings" asp-route-id="@item.BookingId">Modify</a>
+                <a class="btn btn-outline-danger m-1" asp-action="Delete" asp-controller="Bookings" asp-route-id="@item.BookingId">Cancel Booking</a>
+            </td>
+        }
+
+
+    }
+
+
+
+
+
+</tr>
+                
+            }
+
+        </tbody>
+
+
+    </table>
+</div>
+
+
