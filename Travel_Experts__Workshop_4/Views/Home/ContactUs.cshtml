@@ -1,131 +1,91 @@
-﻿
-
-@{
+﻿@{
     ViewData["Title"] = "ContactUs";
 }
 
-<h1>ContactUs</h1>
-<div class="container-fluid.col-xl-8">
-    //-Main Content of the Contact page
-    <div class="container-fluid shadow-lg p-3 mb-3 rounded">
-        <p class="x-4 py-2 my-4 text-center"></p>
-    </div>
-</div>
+@model HomeViewModel
 
-<h2 class="display-5 fw-bold">Contact us</h2>
-<img.d-block.mx-auto.mb-4(src ="/images/logo.png" alt='' width='150rem' height='auto' )>
-    <h1 class="display-5 fw-bolder">Travel Experts</h1>
-    <h2 class="display-6 pb-2 mb-2">Dream  Explore Discover.</h2>
+    
+    <div class="container shadow d-flex flex-column p-3 col-sm-12 col-lg-6" style="width: 100%;">
 
-    <div class="col-lg-6 mx-auto">
-        <p class="lead mb-1 fs-5 text-wrap"></p>
-    </div>
-    | Please get in touch for details and queries.
+        <h1 class="text-center my-5">Our Office Locations</h1>
 
-    <div class="-grid.gap-2 d-sm-flex justify-content-sm-center">
-        <div class="row text-center contianer m-5">
-            <div class="col-4 col-sm-6 col-lg-4">
-                i.bi.bi-telephone-fill(style='font-size: 3rem')
-                <h5 class="">Call Us</h5>
-                <h5 class="">403-xxx-xxx</h5>
-                <div class="col-4 col-sm-12 col-lg-4">
-                    i.bi.bi-envelope(style='font-size: 3rem;')
-                    <h5 class="">Reach Us at</h5>
-                    <a class="(style=" text-decoration:none; color: black" href='mailto: info@travelexperts.ca' )></a>
-                    <h5 class="">info@travelexperts.ca</h5>
-                    <div class="col-4 col-sm-12 col-lg-4">
-                        i.bi.bi-pin-map(style='font-size: 3rem; color')
-                        <h5 class="">Visit Us</h5>
-                        <h5 class="">Calgary, AB, Canada</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    //-Show the agent details card from the database
-    <div class="container shadow d-flex flex-column p-3 col-sm-12 col-lg-6" (style='width: 100%; ' )>
-
-        <h1 class="text-center">Our Offices</h1>
-        if Agency
-        <div class="container-fluid">
-            <div class="#mycard row justify-content-center align-items-start d-flex bg-dark rounded">
-                each agency in Agency
-                <div class="card bg-light m-3" (style='width: 18rem;' )>
-                    <div class="card-body">
-                        <h5 class="card-title Office" #{agency.AgencyId}></h5>
-                        <h6 class="card-subtitle mt-2 mb-1 Address:" #{agency.AgncyAddress}, #{agency.AgncyCity}, #{agency.AgncyProv}, #{agency.AgncyPostal}, #{agency.AgncyCountry}></h6>
-                        <p class="card-text.mt-3" (style="margin-bottom:0" ) Contact: #{agency.AgncyPhone}></p>
-                        <p class="card-text" (style="margin-bottom:0" ) Fax: #{agency.AgncyFax}></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    //- Agent contact information
-
-    <div class="container-fluid">
-        <div class="#mycard row justify-content-center align-items-start d-flex bg-darkrounded">
-            if Agents
-            <h1 class="text" (style="text-align: center;" )> Our Team</h1>
-            <div class="container-fluid d-flex flex-row bg-dark flex-wrap mr-auto justify-content-sm-center justify-content-lg-center">
-                each agent in Agents
-                <div class="card.bg-white.m-3" (style='width: 18rem;' )>
-                    <div class="card-body">
-                        <h5 class="card-title" #{agent.AgtFirstName} #{agent.AgtLastName}></h5>
-                        <h6 class="card-subtitle mt-2 mb-1 Email:" #{agent.AgtEmail}></h6>
-                        <p class="card-text mt-3" (style="margin-bottom:0" ) Contact:#{agent.AgtBusPhone}></p>
-                        <p class="card-text" (style="margin-bottom:0" ) #{agent.AgtPosition}></p>
-                        <p class="card-text Agency ID:" #{agent.AgencyId}></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    //- Contact form
-    <div class="container-fluid shadow d-flex flex-column p-3 mb-5 col-sm-12 col-lg-6" (style='width: 100%; ' )>
-        <div class="container-fluid d-flex flex-column p-3 col-sm-12 col-lg-6" (style='width: 50%;' )>
-            <h1 class="" (style="text-align: center;" )></h1>
-        </div>
-    </div>
-
-    | Send us your questions below.
-    <h5 class="" (style="text-align: center; color: white" )></h5>
-    |Enter your details and query and we will
-    |reach out to you
-    form#contact(action='/contact' method='POST')
-    <div class="mb-3.mt-3">
-        <div class="label form-label fs-5" (for='contactFormName' ) Name>
-            <div class="input#contactFormName form-control" (type='text' placeholder='Enter your Name here' name='Name' )>
-                <div class="mb-3.mt-3">
-                    <div class="label form-label fs-5" (for='contactFormName' ) Email>
-                        <div class="input#contactFormEmail form-control" (type='email' placeholder='name@example.com' name='Email' )>
-                            <div class="mb-3">
-                                <div class="label form-label fs-5" (for='contactFormQuery' ) Query>
-                                    <div class="textarea#contactFormQuery form-control" (rows='3' name='Query' maxlength='400' )>
-                                        <div class="d-grid.mt-3 mb-3 gap-3 col-6 mx-auto">
-                                            <div class="button btn btn-primary btn-block text-white" (type='submit' form='contact' )>
-                                            </div>
-                                        </div>
-                                    </div>
+            <div class="container-fluid">
+                <div class="#mycard row justify-content-center align-items-start d-flex bg-dark rounded">
+                        @foreach (var item in @Model.Agency)
+                        {
+                            <div class="card bg-light m-5" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">@item.AgncyCity Office</h5>
+                                    <p class="mb-2">Agency Address</p>
+                                    <p class="text-white" style="margin:0;">@item.AgncyAddress</p>
+                                    <p class="text-white" style="margin:0;">@item.AgncyCity</p>
+                                    <p class="text-white" style="margin:0;">@item.AgncyProv</p>
+                                    <p class="text-white" style="margin:0;">@item.AgncyPostal</p>
+                                    <p class="text-white mb-3" style="margin:0;">@item.AgncyCountry</p>
+                                    <p class="mb-2">Agency Phone</p>
+                                    <p class="text-white">@item.AgncyPhone</p>
+                                    <p class="mb-2"> Agency Fax</p>
+                                    <p class="text-white">@item.AgncyFax</p>
                                 </div>
                             </div>
+                        }
+                </div>
+            </div>
+    </div>
+
+
+    
+
+    <div class="container shadow d-flex flex-column p-3 col-sm-12 col-lg-6" style="width: 100%;">
+        <h1 class="text my-5" style="text-align: center;"> Our Team</h1>
+        <h5 class="text mb-5" style="text-align: center;"> Agent Contact Information</h5>
+        <div class="container-fluid">
+            <div class="#mycard row justify-content-center align-items-start d-flex bg-dark rounded">
+                @foreach (var item in @Model.Agents)
+                {
+                    <div class="card bg-light m-3" style='width: 18rem;'>
+                        <div class="card-body">
+                            <p class="text-white" style="margin:0;">@item.AgtFirstName @item.AgtFirstName</p>
+                            <p class="">@item.AgtPosition</p>
+                            <p class="text-white">@item.AgtEmail</p>
+                            <p class="text-white">@item.AgtBusPhone</p>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </div>
 
-    | Submit
-    if errors
-    each error in errors
-    p #{error}
+
+
+
+
+    <div class="container-fluid shadow d-flex flex-column col-sm-12 col-lg-6" style="width: 100%;">
+        <div class="container-fluid d-flex flex-column col-sm-12 col-lg-6" style="width: 50%;">
+            <h1 class="mb-3 mt-5" style="text-align: center;">Contact Form</h1>
+            <h5 class="" style="text-align: center;">Send us your questions.</h5>
+        </div>
+    </div>
+<form>
+  <fieldset>
+    <div class="form-group">
+        <label for="" class="form-label mt-4">Full Name</label>
+        <input type="text" class="form-control" id="" aria-describedby="" placeholder="Enter Full Name" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="" class="form-label mt-4">Enter your question</label>
+      <textarea class="form-control" id="" rows="4"></textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-primary mt-2">Submit</button>
+  </fieldset>
+</form>
+
+
 
 
 

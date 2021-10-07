@@ -12,19 +12,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Travel_Experts__Workshop_4.Areas.Identity.Data;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace Travel_Experts__Workshop_4.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
-        private readonly UserManager<Travel_Experts__Workshop_4User> _userManager;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<Travel_Experts__Workshop_4User> _userManager;
         private readonly SignInManager<Travel_Experts__Workshop_4User> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
         public LoginModel(SignInManager<Travel_Experts__Workshop_4User> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<Travel_Experts__Workshop_4User> userManager)
+            Microsoft.AspNetCore.Identity.UserManager<Travel_Experts__Workshop_4User> userManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -91,6 +93,8 @@ namespace Travel_Experts__Workshop_4.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                  /*  var userId = User.Identity.GetUserId();
+                    HttpContext.Session.SetString("CurrentUser", userId );*/
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

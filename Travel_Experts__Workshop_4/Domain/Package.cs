@@ -12,6 +12,7 @@ namespace Travel_Experts__Workshop_4.Domain
             Bookings = new HashSet<Booking>();
             PackagesProductsSuppliers = new HashSet<PackagesProductsSupplier>();
         }
+       
 
         public int PackageId { get; set; }
         public string PkgName { get; set; }

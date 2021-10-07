@@ -6,13 +6,17 @@
     <title>@ViewData["Title"] - Travel Experts</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-CeruleanTheme.css" />*@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-CyborgTheme.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand text-white" asp-area="" asp-controller="Packages" asp-action="Index">Travel Experts</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-secondary border-bottom">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                    @*<img src="\wwwroot\Images\logo_te_white.png" alt="Travel Experts Logo" class="img-fluid">*@
+                    Travel Experts
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -43,7 +47,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Travel Experts @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+            &copy; 2021 - Travel Experts
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -1,0 +1,67 @@
+﻿@model Travel_Experts__Workshop_4.Domain.Booking
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var package = (Package)TempData["SelectedPackage"];
+    var customer = (Customer)TempData["CurrentCustomer"];
+}
+
+<h1>Create</h1>
+
+<h4>Booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookingDate" class="control-label"></label>
+                <input asp-for="BookingDate" class="form-control" />
+                <span asp-validation-for="BookingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingNo" class="control-label"></label>
+                <input asp-for="BookingNo" class="form-control" />
+                <span asp-validation-for="BookingNo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TravelerCount" class="control-label"></label>
+                <input asp-for="TravelerCount" class="form-control" />
+                <span asp-validation-for="TravelerCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label">Customer Name</label>
+                <input  class="form-control" readonly value="@customer.CustFullName">
+                <input asp-for="CustomerId" class="form-control" hidden value="@customer.CustomerId">
+            </div>
+            <div class="form-group">
+                <label asp-for="TripTypeId" class="control-label"></label>
+                <select asp-for="TripTypeId" class="form-control" asp-items="ViewBag.TripTypeId"></select>
+            </div>
+            <div class="form-group">
+                <input hidden asp-for="PackageId" value="@package.PackageId"/>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <h4>Package Details</h4>
+        <p> Package Name : @package.PkgName</p>
+        <p> Package Description : @package.PkgDesc</p>
+        <p> Package Start Date : @String.Format("{0:d}",package.PkgStartDate)</p>
+        <p> Package End Date:  @String.Format("{0:d}", package.PkgEndDate)</p>
+        <p> Package Price : @String.Format("{0:c}", package.PkgBasePrice) (per Traveller)</p>
+      
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Packages" asp-action="Details" asp-route-id="@package.PackageId">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}
