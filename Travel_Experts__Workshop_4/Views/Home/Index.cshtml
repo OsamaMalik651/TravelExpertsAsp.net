@@ -68,18 +68,17 @@
                 @*<img src="\wwwroot\images\2_maldives.jpg" alt=" " class="card-img-top" >*@
                 <div class="card-body text-center d-flex flex-column mt-auto">
                     @*<p class="card-title fs-2 text-center justify-self-end">"@item.PkgName"</p>*@
-                    <label asp-for="@item.PkgName" class="control-label"></label>
-                    <input asp-for="@item.PkgName" class="form-control" />
+                    <p>@item.PkgName</p>
                     <p class="card-text text-center justify-self-end"></p>
-                    <label asp-for="@item.PkgDesc" class="control-label"></label>
-                    <input asp-for="@item.PkgDesc" class="form-control" />
+                    <p>@item.PkgDesc</p>
                     <p class="card-text text-center justify-self-end"></p>
-                    <label asp-for="@item.PkgBasePrice" class="control-label"></label>
-                    <input asp-for="@item.PkgBasePrice" class="form-control" />
-                    <a class="btn-secondary" asp-controller="Packages" asp-action="Details" asp-route-id="@item.PackageId"> Package Details</a>
+                    <p>$@item.PkgBasePrice</p>
+
+                    <a class="btn btn-outline-primary" asp-controller="Packages" asp-action="Details" asp-route-id="@item.PackageId"> Package Details</a>
                 </div>
             </div>
         </div>
+
     }
 </div>
 </div>
