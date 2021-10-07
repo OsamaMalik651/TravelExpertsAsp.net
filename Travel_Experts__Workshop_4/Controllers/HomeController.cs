@@ -65,7 +65,7 @@ namespace Travel_Experts__Workshop_4.Controllers
             };
             return View("ContactUs", model);
         }
-        public IActionResult PackageDetailPage(int id)
+    /*    public IActionResult PackageDetailPage(int id)
         {
         
             var package = _context.Packages.FirstOrDefault(p => p.PackageId == id);
@@ -74,7 +74,7 @@ namespace Travel_Experts__Workshop_4.Controllers
                 return NotFound();
             }
             return View(package);
-        }
+        }*/
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
