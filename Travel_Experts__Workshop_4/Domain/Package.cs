@@ -33,6 +33,8 @@ namespace Travel_Experts__Workshop_4.Domain
         [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal? PkgAgencyCommission { get; set; }
 
+        //public string PkgImg { get; set; }
+
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; }
     }

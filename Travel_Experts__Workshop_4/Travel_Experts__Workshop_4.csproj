@@ -6,14 +6,23 @@
 
   <ItemGroup>
     <Compile Remove="obj\**" />
+    <Compile Remove="Views\Packages1\**" />
     <Content Remove="obj\**" />
+    <Content Remove="Views\Packages1\**" />
     <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="Views\Packages1\**" />
     <None Remove="obj\**" />
+    <None Remove="Views\Packages1\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Controllers\Packages1Controller.cs" />
     <Compile Remove="Domain\TravelExpertsContext.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\PackageDetailPage.cshtml" />
+    <Content Remove="Views\Home\Privacy.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
