@@ -48,7 +48,9 @@ namespace Travel_Experts__Workshop_4.Domain
 
 
 
+
                 optionsBuilder.UseSqlServer("Server=SAIT224513\\SQLEXPRESS;Database=TravelExpertsWorkshop4; Trusted_Connection=True");
+
 
             }
         }
