@@ -39,12 +39,14 @@
     <div class="container shadow d-flex flex-column p-3 col-sm-12 col-lg-6" style="width: 100%;">
         <h1 class="text my-5" style="text-align: center;"> Our Team</h1>
         <h5 class="text mb-5" style="text-align: center;"> Agent Contact Information</h5>
+
         <div class="container-fluid">
             <div class="#mycard row justify-content-center align-items-start d-flex bg-dark rounded">
                 @foreach (var item in @Model.Agents)
                 {
                     <div class="card bg-light m-3" style='width: 18rem;'>
                         <div class="card-body">
+                            <img src="~/Images/(@item.AgentId)_.jpg" alt="travel agent" class="card-img-top"/>
                             <p class="text-white" style="margin:0;">@item.AgtFirstName @item.AgtFirstName</p>
                             <p class="">@item.AgtPosition</p>
                             <p class="text-white">@item.AgtEmail</p>
@@ -60,7 +62,7 @@
 
 
 
-    <div class="container-fluid shadow d-flex flex-column col-sm-12 col-lg-6" style="width: 100%;">
+    @*<div class="container-fluid shadow d-flex flex-column col-sm-12 col-lg-6" style="width: 100%;">
         <div class="container-fluid d-flex flex-column col-sm-12 col-lg-6" style="width: 50%;">
             <h1 class="mb-3 mt-5" style="text-align: center;">Contact Form</h1>
             <h5 class="" style="text-align: center;">Send us your questions.</h5>
@@ -83,7 +85,7 @@
     </div>
     <button type="submit" class="btn btn-outline-primary mt-2">Submit</button>
   </fieldset>
-</form>
+</form>*@
 
 
 

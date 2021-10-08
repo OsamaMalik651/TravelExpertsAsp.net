@@ -97,3 +97,33 @@ div.card-content {
 div.login-form-icon {
     text-align: center;
 }
+
+/*.carousel-caption {
+    transform: translateY(-50%);
+    bottom: initial;
+    top: 50%;
+}
+
+.w100 {
+    font-weight: 100 !important;
+}
+
+.w300 {
+    font-weight: 300 !important;
+}
+
+.w400 {
+    font-weight: 400 !important;
+}
+
+.w500 {
+    font-weight: 500 !important;
+}
+
+.w700 {
+    font-weight: 700 !important;
+}
+
+.w900 {
+    font-weight: 900 !important;
+}*/
