@@ -26,7 +26,8 @@ namespace Travel_Experts__Workshop_4
             services.AddDbContext<Travel_Experts__Workshop_4.Domain.TravelExperts_Context>();
             services.AddSession();
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages()
+                .AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

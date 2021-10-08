@@ -55,16 +55,16 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Discover your new favorite vacation destination.</p>
-    <a asp-controller="User" asp-action="Index"> Accounts Page</a>
+</div>
 
 
 
-<div class="conatiner shadow-lg my-3 p-3 rounded">
+<div class="rounded-1 border border-light" style="box-shadow: rgb(135,206,250) -1px 3px 15px -3px;">
 <div class="#mycard row justify-content-center d-flex rounded">
     @foreach (var item in @Model.Packages)
     {
         <div class="card m-5 p-3 d-flex align-self-stretch" style="width: 25rem;">
-            <div class="d-flex flex-fill shadow">
+            <div class="d-flex flex-fill" style="box-shadow: rgb(30,144,255) -1px 3px 15px -3px;">
                 @*<img src="\wwwroot\images\2_maldives.jpg" alt=" " class="card-img-top" >*@
                 <div class="card-body text-center d-flex flex-column mt-auto">
                     @*<p class="card-title fs-2 text-center justify-self-end">"@item.PkgName"</p>*@
