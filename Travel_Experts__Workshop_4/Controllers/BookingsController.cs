@@ -82,13 +82,15 @@ namespace Travel_Experts__Workshop_4.Controllers
         public async Task<IActionResult> Create([Bind("BookingId,BookingDate,BookingNo,TravelerCount,CustomerId,TripTypeId,PackageId")] Booking booking)
         {
             var Package = _context.Packages.Find(booking.PackageId);
+            Random r = new Random();
+            int num = r.Next(1000, 9999);
             if (ModelState.IsValid)
             {
+                booking.BookingNo = $"ABCD{num}";
                 _context.Add(booking);
                 await _context.SaveChangesAsync();
                 var bookingDetail = new BookingDetail
-                {
-                    
+                {  
                     BookingId = booking.BookingId,
                     ItineraryNo = null,
                     TripStart = Package.PkgStartDate,
@@ -147,10 +149,34 @@ namespace Travel_Experts__Workshop_4.Controllers
 
             if (ModelState.IsValid)
             {
+                var Package = _context.Packages.Find(booking.PackageId);
                 try
                 {
                     _context.Update(booking);
                     await _context.SaveChangesAsync();
+                                        var bookingDetail = new BookingDetail
+                                        {
+                                            BookingId = booking.BookingId,
+                                            ItineraryNo = null,
+                                            TripStart = Package.PkgStartDate,
+                                            TripEnd = Package.PkgEndDate,
+                                            Description = Package.PkgDesc,
+                                            Destination = null,
+                                            BasePrice = Package.PkgBasePrice * Convert.ToDecimal(booking.TravelerCount),
+                                            AgencyCommission = Package.PkgAgencyCommission * Convert.ToDecimal(booking.TravelerCount),
+                                            RegionId = null,
+                                            ClassId = null,
+                                            FeeId = null,
+                                            ProductSupplierId = null
+
+                                        };
+                                        
+                                     
+                    var bookingDetailsEntry = _context.BookingDetails.Where(i => i.BookingId == booking.BookingId).FirstOrDefault();
+                    bookingDetail.BookingDetailId = bookingDetailsEntry.BookingDetailId;
+                    _context.Entry(bookingDetailsEntry).CurrentValues.SetValues(bookingDetail);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "User");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -198,6 +224,8 @@ namespace Travel_Experts__Workshop_4.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var booking = await _context.Bookings.FindAsync(id);
+            var bookingDetails = _context.BookingDetails.Where(i => i.BookingId == booking.BookingId).FirstOrDefault();
+            _context.BookingDetails.Remove(bookingDetails);
             _context.Bookings.Remove(booking);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "User");

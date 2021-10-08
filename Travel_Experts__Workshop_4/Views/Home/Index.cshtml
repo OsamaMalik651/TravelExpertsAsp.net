@@ -45,15 +45,23 @@
     </button>
 </div>
 
+
 <h1 class="display-4 my-5 text-center">Travel Packages</h1>
 <h3 class="text-center">Some of our favorite destinations!</h3>
 
-<div class="conatiner shadow-lg my-3 p-3 rounded">
+
+<div class="rounded-1 border border-light" style="box-shadow: rgb(135,206,250) -1px 3px 15px -3px;">
 <div class="#mycard row justify-content-center d-flex rounded">
     @foreach (var item in @Model.Packages)
     {
-        <div class="card m-5 p-3 d-flex align-self-stretch" style="width: 30rem;">
-            <div class="d-flex flex-fill shadow">
+
+      //  <div class="card m-5 p-3 d-flex align-self-stretch" style="width: 30rem;">
+        //    <div class="d-flex flex-fill shadow">
+
+        <div class="card m-5 p-3 d-flex align-self-stretch" style="width: 25rem;">
+            <div class="d-flex flex-fill" style="box-shadow: rgb(30,144,255) -1px 3px 15px -3px;">
+                @*<img src="\wwwroot\images\2_maldives.jpg" alt=" " class="card-img-top" >*@
+
                 <div class="card-body text-center d-flex flex-column mt-auto">
                     <img src="~/images/@item.PackageId .jpg" alt="travel photo" class="card-img-top" />
                     <h6 class="mt-3">@item.PkgName</h6>

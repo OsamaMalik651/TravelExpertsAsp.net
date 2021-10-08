@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -9,7 +10,9 @@ namespace Travel_Experts__Workshop_4.Domain
     {
         public int BookingDetailId { get; set; }
         public double? ItineraryNo { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? TripStart { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? TripEnd { get; set; }
         public string Description { get; set; }
         public string Destination { get; set; }

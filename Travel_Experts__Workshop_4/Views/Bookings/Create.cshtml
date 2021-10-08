@@ -1,28 +1,26 @@
 ﻿@model Travel_Experts__Workshop_4.Domain.Booking
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Purchase Package";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var package = (Package)TempData["SelectedPackage"];
     var customer = (Customer)TempData["CurrentCustomer"];
 }
-
-<h1>Create</h1>
-
-<h4>Booking</h4>
+<h4 class="text-center">Purchase Package</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row d-flex justify-content-center">
+    <div class="col-md-4 me-3">
+        <h4>Booking Details</h4>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="BookingDate" class="control-label"></label>
-                <input asp-for="BookingDate" class="form-control" />
+                <input asp-for="BookingDate" class="form-control" value="@DateTime.Today.ToShortDateString()" type="datetime" readonly/>
                 <span asp-validation-for="BookingDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BookingNo" class="control-label"></label>
-                <input asp-for="BookingNo" class="form-control" />
+                <input asp-for="BookingNo" class="form-control"/>
                 <span asp-validation-for="BookingNo" class="text-danger"></span>
             </div>
 
@@ -33,20 +31,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="CustomerId" class="control-label">Customer Name</label>
-                <input  class="form-control" readonly value="@customer.CustFullName">
+                <input class="form-control" readonly value="@customer.CustFullName">
                 <input asp-for="CustomerId" class="form-control" hidden value="@customer.CustomerId">
             </div>
             <div class="form-group">
                 <label asp-for="TripTypeId" class="control-label"></label>
                 <select asp-for="TripTypeId" class="form-control" asp-items="ViewBag.TripTypeId"></select>
             </div>
-            <div class="form-group">
-                <input hidden asp-for="PackageId" value="@package.PackageId"/>
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group mt-3 text-center">
+                <input hidden asp-for="PackageId" value="@package.PackageId" />
+                <input type="submit" value="Purchase" class="btn btn-outline-info"/>
+            </div>
+            <div class="form-group mt-3 text-center">
+                <a class="btn btn-outline-secondary" asp-controller="Packages" asp-action="Details" asp-route-id="@package.PackageId">Return</a>
             </div>
         </form>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 ms-3">
         <h4>Package Details</h4>
         <p> Package Name : @package.PkgName</p>
         <p> Package Description : @package.PkgDesc</p>
@@ -57,11 +58,9 @@
     </div>
 </div>
 
-<div>
-    <a asp-controller="Packages" asp-action="Details" asp-route-id="@package.PackageId">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
+    
 }

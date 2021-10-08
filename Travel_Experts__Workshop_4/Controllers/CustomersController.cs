@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using Travel_Experts__Workshop_4.Domain;
 
 namespace Travel_Experts__Workshop_4.Controllers
 {
+    [Authorize]
     public class CustomersController : Controller
     {
         private readonly TravelExperts_Context _context;
@@ -115,7 +117,7 @@ namespace Travel_Experts__Workshop_4.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "User");
             }
             ViewData["AgentId"] = new SelectList(_context.Agents, "AgentId", "AgentId", customer.AgentId);
             return View(customer);
