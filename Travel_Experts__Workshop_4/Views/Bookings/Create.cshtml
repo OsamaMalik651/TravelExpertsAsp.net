@@ -6,9 +6,9 @@
     var package = (Package)TempData["SelectedPackage"];
     var customer = (Customer)TempData["CurrentCustomer"];
 }
-<h4 class="text-center">Purchase Package</h4>
+<h4 class="text-center mt-5">Purchase Package</h4>
 <hr />
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center mt-5">
     <div class="col-md-4 me-3">
         <h4>Booking Details</h4>
         <form asp-action="Create">
@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="BookingNo" class="control-label"></label>
-                <input asp-for="BookingNo" class="form-control"/>
+                <input asp-for="BookingNo" class="form-control" placeholder="Auto-generated" readonly/>
                 <span asp-validation-for="BookingNo" class="text-danger"></span>
             </div>
 
@@ -49,11 +49,11 @@
     </div>
     <div class="col-md-4 ms-3">
         <h4>Package Details</h4>
-        <p> Package Name : @package.PkgName</p>
-        <p> Package Description : @package.PkgDesc</p>
-        <p> Package Start Date : @String.Format("{0:d}",package.PkgStartDate)</p>
-        <p> Package End Date:  @String.Format("{0:d}", package.PkgEndDate)</p>
-        <p> Package Price : @String.Format("{0:c}", package.PkgBasePrice) (per Traveller)</p>
+        <h5 class="mt-4"> Package Name : @package.PkgName</h5>
+        <h5 > Package Description : @package.PkgDesc</h5>
+        <h5> Package Start Date : @String.Format("{0:d}",package.PkgStartDate)</h5>
+        <h5> Package End Date:  @String.Format("{0:d}", package.PkgEndDate)</h5>
+        <h5> Package Price : @String.Format("{0:c}", package.PkgBasePrice) (per Traveller)</h5>
       
     </div>
 </div>
