@@ -1,4 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿//Date: October 11, 2021
+//Projetct: PROJ-009-003 – Project Workshop 4, Travel Experts Website
+
+//Group 1, Team 1:
+//Osama Malik		SAIT Student ID 880863
+//Tracy Crape		SAIT Student ID 420488
+//Adesola Oyatunji	SAIT Student ID 838997
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
