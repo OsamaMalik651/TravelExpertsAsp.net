@@ -1,4 +1,13 @@
-﻿using System;
+﻿//Date: October 11, 2021
+//Projetct: PROJ-009-003 – Project Workshop 4, Travel Experts Website
+
+//Group 1, Team 1:
+//Osama Malik		SAIT Student ID 880863
+//Tracy Crape		SAIT Student ID 420488
+//Adesola Oyatunji	SAIT Student ID 838997
+
+
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -44,12 +53,16 @@ namespace Travel_Experts__Workshop_4.Domain
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
 
-               // optionsBuilder.UseSqlServer("Server=LAPTOP-RK06UI3M;Database=TravelExpertsWorkshop4; Trusted_Connection=True");
+                optionsBuilder.UseSqlServer("Server=localhost\\sqlexpress01;Database=TravelExpertsWorkshop4; Trusted_Connection=True");
+
+                //optionsBuilder.UseSqlServer("Server=SAIT224513\\SQLEXPRESS;Database=TravelExpertsWorkshop4; Trusted_Connection=True");
+
+                //optionsBuilder.UseSqlServer("Server=LAPTOP-RK06UI3M;Database=TravelExpertsWorkshop4; Trusted_Connection=True");
 
 
 
 
-                optionsBuilder.UseSqlServer("Server=SAIT224513\\SQLEXPRESS;Database=TravelExpertsWorkshop4; Trusted_Connection=True");
+                // optionsBuilder.UseSqlServer("Server=SAIT224513\\SQLEXPRESS;Database=TravelExpertsWorkshop4; Trusted_Connection=True");
 
 
             }

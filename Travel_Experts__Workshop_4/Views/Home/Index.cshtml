@@ -1,14 +1,22 @@
-﻿@{ ViewData["Title"] = "Travel Experts";
+﻿@*//Date: October 11, 2021
+    //Projetct: PROJ-009-003 – Project Workshop 4, Travel Experts Website
+
+    //Group 1, Team 1:
+    //Osama Malik		SAIT Student ID 880863
+    //Tracy Crape		SAIT Student ID 420488
+    //Adesola Oyatunji	SAIT Student ID 838997*@
+
+
+@{ ViewData["Title"] = "Travel Experts";
     int id = 1;}
 @model HomeViewModel
 
+@*//Created by Tracy Crape with help from Adesola Oyatunji*@
+
+@* Main page photo carousel. Carousel Code from getbootsrap.com*@
 
 <div id="carouselExampleFade" class="carousel slide carousel-fade my-5" data-bs-ride="carousel">
-    @*<div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>*@
+
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="https://images.unsplash.com/photo-1483190914030-b4dc3e0f558c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80" class="d-block w-100" alt="Woman walking through airport at sunset" style="height: 600px; object-fit: cover;">
@@ -35,43 +43,37 @@
             </div>
         </div>
     </div>
-    @*<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>*@
+
 </div>
 
+@*Travel Packages displayed*@
 
 <h1 class="display-4 my-5 text-center">Travel Packages</h1>
 <h3 class="text-center">Some of our favorite destinations!</h3>
 
 
 <div class="rounded-1 border border-light" style="box-shadow: rgb(135,206,250) -1px 3px 15px -3px;">
-<div class="#mycard row justify-content-center d-flex rounded">
-    @foreach (var item in @Model.Packages)
-    {
+    <div class="#mycard row justify-content-center d-flex rounded">
+        @foreach (var item in @Model.Packages)
+        {
 
-      //  <div class="card m-5 p-3 d-flex align-self-stretch" style="width: 30rem;">
-        //    <div class="d-flex flex-fill shadow">
+            //  <div class="card m-5 p-3 d-flex align-self-stretch" style="width: 30rem;">
+            //    <div class="d-flex flex-fill shadow">
 
-        <div class="card m-5 p-3 d-flex align-self-stretch" style="width: 25rem;">
-            <div class="d-flex flex-fill" style="box-shadow: rgb(30,144,255) -1px 3px 15px -3px;">
-                @*<img src="\wwwroot\images\2_maldives.jpg" alt=" " class="card-img-top" >*@
+            <div class="card m-5 p-3 d-flex align-self-stretch" style="width: 25rem;">
+                <div class="d-flex flex-fill" style="box-shadow: rgb(30,144,255) -1px 3px 15px -3px;">
+                    @*<img src="\wwwroot\images\2_maldives.jpg" alt=" " class="card-img-top" >*@
 
-                <div class="card-body text-center d-flex flex-column mt-auto">
-                    <img src="~/images/@item.PackageId .jpg" alt="travel photo" class="card-img-top" />
-                    <h6 class="mt-3">@item.PkgName</h6>
-                    <h6 class="mt-2">@item.PkgDesc</h6>
-                    <h6 class="my-3">$@item.PkgBasePrice</h6>
-                    <a class="btn btn-outline-primary" asp-controller="Packages" asp-action="Details" asp-route-id="@item.PackageId"> Package Details</a>
+                    <div class="card-body text-center d-flex flex-column mt-auto">
+                        <img src="~/images/@item.PackageId .jpg" alt="travel photo" class="card-img-top" />
+                        <h6 class="mt-3">@item.PkgName</h6>
+                        <h6 class="mt-2">@item.PkgDesc</h6>
+                        <h6 class="my-3">$@item.PkgBasePrice</h6>
+                        <a class="btn btn-outline-primary" asp-controller="Packages" asp-action="Details" asp-route-id="@item.PackageId"> Package Details</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    }
-</div>
+        }
+    </div>
 </div>
